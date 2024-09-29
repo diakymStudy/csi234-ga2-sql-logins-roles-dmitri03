@@ -1,0 +1,29 @@
+In a text file named "PermissionsExplanation.txt", provide brief explanations for the following:
+
+1.Explain the different types of permissions you assigned (SELECT, INSERT, UPDATE, DELETE) and what each allows a user to do.
+
+SELECT allows a user to view data from a schema or a list of database objects contained in it.
+INSERT allows a user to add data to a database object 
+UPDATE allows a user to change data in a corresponding entry 
+DELETE allows a user to delete an entry. 
+
+2.Describe the concept of schema-level permissions vs. table-level permissions.
+A schema-level permission grants access to an array of data operations on an entire schema (a whole set of DB objects that is
+contained in it)
+A table-level permission allows a user to perform an array of data operations on a set of tables contained in a schema. 
+
+3.Explain how column-level permissions work and why they might be useful.
+Column-level user permission specifies a set of columns that a user is or is not able to operate on from a specified table.
+The column-level permissions are useful, for example, when trying to exclude columns containing private/sensitive data, or data should not be possible to change by a certain role. Combining the table and column-level permissions can facilitate designing a sufficiently specific RBAC setup.  
+
+4.Discuss the principle of least privilege and how it's applied in this RBAC setup.
+The principle of least privilege dictates that any database user should have the least amount of permissions while still being able to 
+perform necessary tasks. In this RBAS setup, the PoLP was implemented by creating Logins on a server level for user authentication and
+Users on a database level for database authorization, and by defining the user ‘rights’ using schema, table, and column-level permissions
+ to accommodate different users with different sets of actions and tasks, as categorized by roles. 
+
+5.Explain the potential security benefits of using roles instead of assigning permissions directly to users.
+As opposed to assigning permissions directly to users, implementing roles provides a structured way to manage user access.
+ Apart from being much more efficient, this approach also ensures that every single user has a restrained level of data access, 
+as defined by the combination of schema, table, and column permissions assigned to each role, thus eliminating the chance of 
+a single user having an undesirable amount of access. 
